@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arsip IPAL</title>
+    <link rel="stylesheet" href="cssForArsip/listArsip.css" />
+    <link rel="stylesheet" href="cssForArsip/navbar.css" />
+    <link rel="stylesheet" href="cssForArsip/buttom.css" />
+    <link rel="stylesheet" href="cssForArsip/loading.css" />
+    <link
+      rel="shortcut icon"
+      href="https://ik.imagekit.io/galleryBiden/foto/hydro-power.png?updatedAt=1760495537409"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loader" style="display: none">
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="line"></div>
+    </div>
+    <!--btn navbar-->
+    <script src="jsForArsip/navbar-btn.js"></script>
+
+    <div class="spasi"></div>
+    <script src="jsForArsip/link.js"></script>
+
+    <div>
+      <h1>ARSIP IPAL</h1>
+      <table>
+        <tr>
+          <td><a class="tabel" onclick="Tahun2025()">Tahun 2025</a><br /></td>
+        </tr>
+        <tr>
+          <td><a class="tabel" onclick="Tahun2026()">Tahun 2026</a><br /></td>
+        </tr>
+      </table>
+    </div>
+    <!--Buttom-->
+    <div class="spasi-bwh"></div>
+    <nav class="bawah">
+      <ul class="isi-bwh">
+        <li class="logo">
+          <p>Created by:</p>
+          <img
+            src="https://ik.imagekit.io/galleryBiden/foto/LOGO%20ABDN%20white.png?updatedAt=1761290886771"
+            width="90px"
+            alt="ABDN"
+          /><br />
+          <p>©2025</p>
+        </li>
+        <li class="bmj">
+          <img
+            src="https://ik.imagekit.io/galleryBiden/foto/BMJ_logo-mini.png?updatedAt=1761278384754"
+          />
+        </li>
+      </ul>
+    </nav>
+  </body>
+  <script>
+    document.querySelectorAll(".tabel").forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.classList.add("slide-out");
+        setTimeout(() => {
+          window.location = this.href;
+        }, 100);
+      });
+    });
+  </script>
+</html>

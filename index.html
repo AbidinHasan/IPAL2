@@ -1,0 +1,193 @@
+<!doctype html>
+<html prefix="og: https://ogp.me/ns#">
+  <head>
+    <title>Dashboard IPAL</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/Jam.css" />
+    <!--OpenGraph-->
+    <meta property="og:title" content="Dashboard IPAL" />
+    <meta property="og:description" content="Laporan IPAL BMJ Kudus" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bidin.onrender.com/" />
+    <meta
+      property="og:image"
+      content="https://ik.imagekit.io/galleryBiden/foto/Eureka%20Everyday.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="152" />
+    <meta property="og:image:alt" content="BMJ Kudus" />
+    <!--End OGP-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="https://ik.imagekit.io/galleryBiden/foto/hydro-power.png?updatedAt=1760495537409"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/loading.css" />
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
+      fbq("init", "914776361109886");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=914776361109886&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+  </head>
+  <body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loader" style="display: none">
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="text"><span>Loading</span></div>
+      <div class="line"></div>
+    </div>
+
+    <canvas id="particle-bg"></canvas>
+    <nav class="dropdown" id="menuOpsi">
+      <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">
+        <strong>三</strong>
+      </button>
+      <div class="dropdown-content">
+        <a id="stp" onclick="stp()">Debit STP</a>
+        <a id="wwtp" onclick="wwtp()">Debit WWTP</a>
+        <a id="internalLAB" onclick="internalLAB()">LAB Internal</a>
+        <a id="msds" onclick="msds()">MSDS</a>
+        <a id="wi" onclick="wi()">Work Instriction</a>
+        <a id="arsip" onclick="klikarsip()">Arsip</a>
+      </div>
+      <script>
+        const dropdown = document.getElementById("menuOpsi");
+        const btn = dropdown.querySelector(".dropdown-btn");
+
+        btn.addEventListener("click", function (e) {
+          const isOpen = dropdown.classList.toggle("open");
+          btn.setAttribute("aria-expanded", String(isOpen));
+          e.stopPropagation();
+        });
+
+        document.addEventListener("click", function () {
+          if (dropdown.classList.contains("open")) {
+            dropdown.classList.remove("open");
+            btn.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && dropdown.classList.contains("open")) {
+            dropdown.classList.remove("open");
+            btn.setAttribute("aria-expanded", "false");
+            btn.focus();
+          }
+        });
+      </script>
+    </nav>
+    <div class="jam">
+      <b id="waktu"></b>
+      <script src="js/jamTanggal.js"></script>
+    </div>
+    <div>
+      <div class="spasi"></div>
+      <img
+        class="judulimg"
+        src="https://ik.imagekit.io/galleryBiden/foto/Dashboard%20IPAL%20Std.png"
+        alt="Dashboard IPAL"
+      />
+    </div>
+
+    <div class="menu-container">
+      <div class="menu-card" onclick="stp()">
+        <img
+          src="https://ik.imagekit.io/galleryBiden/foto/water-tap.png?updatedAt=1760495537448"
+          alt="stp"
+        />
+        <span>Debit STP</span>
+      </div>
+      <div class="menu-card" onclick="wwtp()">
+        <img
+          src="https://ik.imagekit.io/galleryBiden/foto/waste%20(1).png?updatedAt=1760495778539"
+          alt="wwtp"
+        />
+        <span>Debit WWTP</span>
+      </div>
+
+      <div class="menu-card" onclick="msds()">
+        <img
+          src="https://ik.imagekit.io/galleryBiden/foto/search.png?updatedAt=1760495537486"
+          alt="MSDS"
+        />
+        <span>Material Safety Data Sheet</span>
+      </div>
+
+      <div class="menu-card" onclick="usageMaterial()">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/2158/2158236.png"
+          alt="Pemakaian Material"
+        />
+        <span>Material Usage</span>
+      </div>
+
+      <div class="menu-card" onclick="internalLAB()">
+        <img
+          src="https://ik.imagekit.io/galleryBiden/foto/reagent.png?updatedAt=1760496079098"
+          alt="internal"
+        />
+        <span>LAB Internal</span>
+      </div>
+
+      <div class="menu-card" onclick="tentang()">
+        <img
+          src="https://ik.imagekit.io/galleryBiden/foto/water.png?updatedAt=1760495537428"
+          alt="about"
+        />
+        <span>About</span>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Tambahkan kelas animasi hanya setelah halaman siap
+        const cards = document.querySelectorAll("menu-card");
+        setTimeout(() => {
+          cards.forEach((card) => (card.style.opacity = "1"));
+        }, 200);
+      });
+    </script>
+    <script src="js/link.js"></script>
+    <!--<script src="js/BGanimasi.js"></script>-->
+  </body>
+</html>
